@@ -38,7 +38,13 @@ function Board() {
 	return (
 		<div className='Board-wrapper'>
 			{lanes.map((lane) => (
-				<Lane key={lane.id} title={lane.title} />
+				<Lane
+					key={lane.id}
+					title={lane.title}
+					loading={loading}
+					error={error}
+					tasks={tasks.filter((task) => task.lane === lane.id)}
+				/>
 			))}
 		</div>
 	);
